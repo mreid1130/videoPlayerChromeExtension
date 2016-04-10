@@ -1,6 +1,6 @@
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
   if (request.source) {
-    var existingVideo = document.getElementById('video-player');
+    var existingVideo = document.getElementById('video-container');
     if (existingVideo) {
       document.body.removeChild(existingVideo);
     }
