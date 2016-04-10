@@ -1,9 +1,9 @@
 {
   "manifest_version": 2,
 
-  "name": "Video Overlay",
-  "description": "Allows you to put overlay of Youtube or Twitch stream on top of your active tab",
-  "version": "1.0",
+  "name": "BrowseBed",
+  "description": "Embed a resizeable, draggable video overlay on top of your active tab by passing in a video URL from Twitch, YouTube, Vimeo, or DailyMotion.",
+  "version": "0.0.1",
 
   "browser_action": {
     "default_icon": "icon.png",

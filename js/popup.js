@@ -1,4 +1,5 @@
 function getQueryVariable(url, variable) {
+  // given a query String, search for a query parameter
   var vars = url.split('&');
   for (var i = 0; i < vars.length; i++) {
     var pair = vars[i].split('=');
@@ -11,6 +12,7 @@ function getQueryVariable(url, variable) {
 
 
 var embedVideo = function(url) {
+  // parse unique video ID from a given source url
   var source;
   if (url.indexOf('twitch.tv/') > -1) {
     var channel = url.split('twitch.tv/')[1];
@@ -43,6 +45,8 @@ var embedVideo = function(url) {
       }
     }
   }
+
+  // only send embed message to active tab if there is a proper source
   if (source) {
     var extensionOrigin = 'chrome-extension://' + chrome.runtime.id;
     if (!location.ancestorOrigins.contains(extensionOrigin)) {
@@ -65,13 +69,16 @@ var embedVideo = function(url) {
 };
 
 window.onload = function() {
+
+  // check for previous valid stream url
   var pastSearch = localStorage.getItem('lastStreamChrome');
   if (pastSearch) {
     document.getElementById('video-url').value = pastSearch;
   }
 
-
+  // event listener to remove previous video and start embed process of given url
   document.getElementById('video-form').addEventListener("submit", function(e) {
+    // prevent refresh on submit
     e.preventDefault();
     var existingVideo = document.getElementById('video-player');
     if (existingVideo) {
