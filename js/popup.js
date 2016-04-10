@@ -25,6 +25,23 @@ var embedVideo = function(url) {
         source = "https://www.youtube.com/embed/" + videoId;
       }
     }
+  } else if (url.indexOf('vimeo.com/') > -1) {
+    url = url.split('?')[0];
+    var urlParams = url.split('vimeo.com/')[1];
+    if (urlParams) {
+      if (urlParams.split('/').length === 1) {
+        source = "https://player.vimeo.com/video/" + urlParams;
+      }
+    }
+  } else if (url.indexOf('dailymotion.com/video/') > -1) {
+    url = url.split('?')[0];
+    var urlParams = url.split('dailymotion.com/video/')[1];
+    if (urlParams) {
+      if (urlParams.split('/').length === 1) {
+        urlParams = urlParams.split('_')[0];
+        source = "https://www.dailymotion.com/embed/video/" + urlParams;
+      }
+    }
   }
   if (source) {
     var extensionOrigin = 'chrome-extension://' + chrome.runtime.id;
