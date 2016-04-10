@@ -1,5 +1,9 @@
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
   if (request.source) {
+    var existingVideo = document.getElementById('video-player');
+    if (existingVideo) {
+      document.body.removeChild(existingVideo);
+    }
     var iframe = document.createElement('iframe');
     iframe.id = 'video-player';
     // Must be declared at web_accessible_resources in manifest.json
