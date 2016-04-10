@@ -2,7 +2,7 @@
   "manifest_version": 2,
 
   "name": "Video Overlay",
-  "description": "Allows user to put overlay of Youtube or Twitch stream on their browser",
+  "description": "Allows you to put overlay of Youtube or Twitch stream on top of your active tab",
   "version": "1.0",
 
   "browser_action": {
@@ -18,7 +18,8 @@
   ],
   "content_scripts": [{
     "matches": ["*://*/*"],
-    "js": ["js/content.js"],
+    "js": ["js/jquery/jquery-1.10.2.min.js", "js/jquery/jquery-ui.min.js", "js/content.js"],
+    "css": ["css/jquery/jquery-ui.css"],
     "run_at": "document_end",
     "all_frames": false
   }]
