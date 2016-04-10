@@ -1,3 +1,19 @@
+#video-container {
+    height: 450px;
+    width: 800px;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 1000000000000000000;
+    border: none;
+    display: hidden;
+    -webkit-transition: background 0.5s linear;
+    -moz-transition: background 0.5s linear;
+    -ms-transition: background 0.5s linear;
+    -o-transition: background 0.5s linear;
+    transition: background 0.5s linear;
+}
+
 #video-container .close-icon {
     border: 1px solid transparent;
     background-color: transparent;
@@ -44,6 +60,7 @@
     opacity: 1;
     transition: opacity .5s ease-out;
     -moz-transition: opacity .5s ease-out;
+    -ms-transition: opacity .5s ease-out;
     -webkit-transition: opacity .5s ease-out;
     -o-transition: opacity .5s ease-out;
 }
@@ -52,6 +69,20 @@
     opacity: 1;
     transition: opacity .5s ease-out;
     -moz-transition: opacity .5s ease-out;
+    -ms-transition: opacity .5s ease-out;
     -webkit-transition: opacity .5s ease-out;
     -o-transition: opacity .5s ease-out;
+}
+
+#video-container iframe {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
 }
