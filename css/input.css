@@ -29,7 +29,7 @@
 .close-icon {
     border: 1px solid transparent;
     background-color: transparent;
-    display: inline-block;
+    display: hidden;
     vertical-align: middle;
     outline: 0;
     cursor: pointer;

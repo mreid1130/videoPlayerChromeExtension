@@ -19,7 +19,7 @@
   "content_scripts": [{
     "matches": ["*://*/*"],
     "js": ["js/jquery/jquery-1.10.2.min.js", "js/jquery/jquery-ui.min.js", "js/content.js"],
-    "css": ["css/jquery/jquery-ui.css"],
+    "css": ["css/jquery/jquery-ui.css", "css/embed.css"],
     "run_at": "document_end",
     "all_frames": false
   }]

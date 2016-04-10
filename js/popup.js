@@ -51,7 +51,6 @@ window.onload = function() {
   var pastSearch = localStorage.getItem('lastStreamChrome');
   if (pastSearch) {
     document.getElementById('video-url').value = pastSearch;
-    embedVideo(pastSearch);
   }
 
 

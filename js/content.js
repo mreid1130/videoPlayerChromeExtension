@@ -6,9 +6,14 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
     }
     var iframe = document.createElement('iframe');
     var div = document.createElement('div');
+    var closeButton = document.createElement('button');
+
+    closeButton.className = 'close-icon';
+    closeButton.setAttribute('type', 'reset');
+
     div.id = "video-container"
-    div.style.height = "400px";
-    div.style.width = "710px";
+    div.style.height = "450px";
+    div.style.width = "800px";
     div.style.position = "fixed";
     div.style.top = "0px";
     div.style.left = "0px";
@@ -19,11 +24,14 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
     div.style.MozTransition = 'background 0.5s linear';
     div.style.transition = 'background 0.5s linear';
     div.onmouseover = function() {
-      div.style.backgroundColor = "rgba(0, 0, 0, .1)"
+      div.style.backgroundColor = "rgba(0, 0, 0, .1)";
+      closeButton.style.display = 'inline-block';
     };
     div.onmouseleave = function() {
-      div.style.backgroundColor = "rgba(0, 0, 0, 0)"
+      div.style.backgroundColor = "rgba(0, 0, 0, 0)";
+      closeButton.style.display = 'hidden';
     };
+
     iframe.id = 'video-player';
     iframe.src = request.source;
     iframe.height = "90%";
@@ -40,11 +48,15 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
     iframe.style.right = "0";
 
     document.body.insertBefore(div, document.body.firstChild);
+    div.appendChild(closeButton);
     div.appendChild(iframe);
     $("#video-container").resizable();
     $("#video-container").draggable();
+    closeButton.addEventListener("click", function(e) {
+      document.body.removeChild(document.getElementById('video-container'));
+    }, false);
     sendResponse({
       'success': 'done'
-    })
+    });
   }
 });
