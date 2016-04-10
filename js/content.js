@@ -7,8 +7,8 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
     var iframe = document.createElement('iframe');
     var div = document.createElement('div');
     div.id = "video-container"
-    div.style.height = "360px";
-    div.style.width = "640px";
+    div.style.height = "400px";
+    div.style.width = "710px";
     div.style.position = "fixed";
     div.style.top = "0px";
     div.style.left = "0px";
@@ -26,8 +26,8 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
     };
     iframe.id = 'video-player';
     iframe.src = request.source;
-    iframe.height = "95%";
-    iframe.width = "95%";
+    iframe.height = "90%";
+    iframe.width = "90%";
     iframe.style.display = "block";
     iframe.style.marginLeft = "auto";
     iframe.style.marginRight = "auto";
@@ -42,6 +42,7 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
     document.body.insertBefore(div, document.body.firstChild);
     div.appendChild(iframe);
     $("#video-container").resizable();
+    $("#video-container").draggable();
     sendResponse({
       'success': 'done'
     })
